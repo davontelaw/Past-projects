@@ -1,0 +1,57 @@
+using System;
+
+namespace interest calculator 2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           double cashFlow, loan, period, iRate, payment;
+
+            do
+            {
+                string input;
+                Console.WriteLine("Please enter your cash flow:");
+                input = Console.ReadLine();
+                cashFlow = double.Parse(input);
+
+                Console.WriteLine("Please enter your loan amount:");
+                input = Console.ReadLine();
+                loan = double.Parse(input);
+
+                Console.WriteLine("Please enter your loan period:");
+                input = Console.ReadLine();
+                period = double.Parse(input);
+
+                Console.WriteLine("Please enter your interest rate:");
+                input = Console.ReadLine();
+                iRate = double.Parse(input);
+
+                if(cashFlow <= 0 || loan <= 0 || period <= 0 || iRate <= 0)
+                {
+                    Console.WriteLine("Please provide valid inputs!");
+                }
+
+
+            } while (cashFlow <= 0 || loan<= 0 || period <= 0 || iRate <= 0);
+            payment = (loan * iRate / 100) / (1 - (1) / (Math.Pow(1 + iRate / 100, period)));
+
+            Console.WriteLine("You entered loan amount of {0:F2} at interest rate of {1:F3}", loan, iRate);
+
+            Console.WriteLine("The monthly interest pay is ${0:F3}.", payment);
+
+            if(payment <= 0.5 * cashFlow &&cashFlow > 5000)
+            {
+              
+            }
+            else if(payment <= 0.5 * cashFlow || cashFlow > 5000)
+            {
+
+            }
+            else
+            {
+            
+            }
+        }
+    } 
+}
