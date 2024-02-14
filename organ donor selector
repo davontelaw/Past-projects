@@ -1,0 +1,70 @@
+using System;
+using static System.Console;
+namespace organ donor selector
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double kdri, age, height, weight;
+            int abo, donorType, diab, hcv;
+
+            string input;
+
+            Write("Please enter donor's ABO blood type (1-O, 2-A, 3-B, 4-AB): ");
+            input = ReadLine();
+            abo = int.Parse(input);
+
+            if (abo != 2)
+            {
+                WriteLine("Recommendation: Don't take the offer");
+            }
+            else
+            {
+                Write("Is the donation from a living donor? (1-Yes, 0-No):");
+                input = ReadLine();
+                donorType = int.Parse(input);
+
+                if (donorType == 1)
+                {
+                    WriteLine("Recommendation: Take the offer");
+                }
+                else
+                {
+
+                    Write("Enter donor age");
+                    input = ReadLine();
+                    age = int.Parse(input);
+
+                    Write("Enter donor height");
+                    input = ReadLine();
+                    height = double.Parse(input);
+
+                    Write("Enter donor weight");
+                    input = ReadLine();
+                    weight = double.Parse(input);
+
+                    Write("Enter donor diabetes history (1-Yes, 0-No):");
+                    input = ReadLine();
+                    diab = int.Parse(input);
+
+                    Write("Enter donor hcv status (1-Yes, 0-No):");
+                    input = ReadLine();
+                    hcv = int.Parse(input);
+
+                    kdri = 0.0128 * (age - 40) - 0.00464 * (height - 170) - 0.0199 * (weight - 80) / 5 + 0.1300 * (diab) + 0.2400 * (hcv);
+
+
+                    if (kdri < 0.74)
+                    {
+                        WriteLine("Recommendation: Take the offer");
+                    }
+                    else
+                    {
+                        WriteLine("Recommendation: Don't take the offer");
+                    }
+                }
+            }
+        }
+    }
+}
